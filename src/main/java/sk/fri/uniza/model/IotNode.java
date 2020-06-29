@@ -29,10 +29,9 @@ public class IotNode {
     private String Name;
 
 
-    @Valid
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "household_id", nullable = false)
     private HouseHold houseHold;
-    @OneToMany(fetch = FetchType.LAZY,
-            mappedBy = "household", cascade = CascadeType.REMOVE)
 
 
 
