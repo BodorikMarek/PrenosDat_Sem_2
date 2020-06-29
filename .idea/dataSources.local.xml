@@ -28,5 +28,10 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="src:main:resources:hibernate.cfg.xml/Hibernate" uuid="7fbd59ea-84f7-460b-aa14-272502107a21">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
+      <user-name>householduser</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>
