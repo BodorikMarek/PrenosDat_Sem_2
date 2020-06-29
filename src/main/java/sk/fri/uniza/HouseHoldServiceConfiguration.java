@@ -23,5 +23,4 @@ public class HouseHoldServiceConfiguration extends Configuration {
     public DataSourceFactory getDataSourceFactory() {
         return database;
     }
-
 }

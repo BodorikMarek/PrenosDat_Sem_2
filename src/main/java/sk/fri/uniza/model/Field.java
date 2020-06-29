@@ -7,7 +7,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Set;
-
 @org.hibernate.annotations.NamedQueries({
         @org.hibernate.annotations.NamedQuery(name = "Field_All",
                 query = "from Field"),
@@ -15,7 +14,6 @@ import java.util.Set;
 
 @Entity
 public class Field {
-
     @Id
     @NaturalId //Primárny klúč nie je generovaný, ale je tvorený názvom premennej
     @NotEmpty
@@ -31,6 +29,7 @@ public class Field {
     @JsonIgnore // Ignorovanie danej premenej z pohladu Serializacie do
     // objektu JSON.Generoval by sa obrovský JSON a dochádzalo by aj k
     // zacykleniu
+
     private Set<AbstractData> data;
 
     public String getName() {

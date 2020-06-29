@@ -31,13 +31,11 @@ import java.util.List;
         schemes = {SwaggerDefinition.Scheme.HTTP}
 
 )
-
 @Api("/household") // Swagger
 @Path("/household") // Koreňová adresa kolekcie koncových bodov
 // pre prístup k zdrojom domácností // Súčasť JAX-RS
 @Produces(MediaType.APPLICATION_JSON)// Výstupné dáta sú vo forme JSON //JAX-RS
 @Consumes(MediaType.APPLICATION_JSON) //Vstupné dáta sú vo forme JSON //JAX-RS
-
 public class HouseHoldResource {
 
     private HouseHoldDAO houseHoldDAO;
@@ -59,7 +57,6 @@ public class HouseHoldResource {
                                 AbstractData data) {
         return dataDAO.create(hhId, fieldID, data);
     }
-
 
     @GET // JAX-RS
     @Path("{householdID}/{fieldID}") // JAX-RS
@@ -92,7 +89,6 @@ public class HouseHoldResource {
     @Path("{id}") /*JAX-RS*/
     @UnitOfWork //Otvorí novú hibernate session // Dropwizard
     @ApiOperation(value = "Úprava existujúcej domácnosti")
-
     public HouseHold updateHouseHold(
             @ApiParam(value = "ID", required = true) @PathParam("id") Long id,
             @Valid HouseHold houshold) {
@@ -100,14 +96,12 @@ public class HouseHoldResource {
         return houseHoldDAO.update(houshold);
     }
 
-
     @GET
     @UnitOfWork //Otvorí novú hibernate session
     @ApiOperation(value = "Zoznam všetkých domácnosti")
     public List<HouseHold> listHouseHold() {
         return houseHoldDAO.findAll();
     }
-
 
     @GET //HTTP metóda
     @Path("{id}") // Jedna vetva hlavnej adresy /household
@@ -117,7 +111,6 @@ public class HouseHoldResource {
             @ApiParam(value = "ID", required = true) @PathParam("id") Long id) {
         return houseHoldDAO.findById(id);
     }
-
 
     @GET
     @Path("filter")

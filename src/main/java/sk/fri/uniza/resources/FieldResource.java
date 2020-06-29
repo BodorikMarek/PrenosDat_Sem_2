@@ -15,7 +15,6 @@ import java.util.List;
 @Path("/field")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-
 public class FieldResource {
 
     private FieldDAO fieldDAO;

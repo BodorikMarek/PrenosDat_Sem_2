@@ -9,10 +9,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
-import javax.persistence.*;
-import java.time.LocalDateTime;
-
 @org.hibernate.annotations.NamedQueries({
         @org.hibernate.annotations.NamedQuery(name = "AbstractData_findData",
                 query = "from AbstractData where household_id = :hhId AND " +
@@ -26,7 +22,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -40,7 +35,6 @@ import java.time.LocalDateTime;
 @ApiModel(value = "Data", discriminator = "type", subTypes = {DataDouble.class
         , DataInteger.class,
         DataString.class})
-
 public abstract class AbstractData<T extends Object> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,6 +49,8 @@ public abstract class AbstractData<T extends Object> {
     @JoinColumn(name = "household_id", nullable = false)
     private HouseHold houseHold;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
+    @ApiModelProperty(example = "31/01/2020 14:00")
     private LocalDateTime dateTime;
 
     public Long getId() {
@@ -72,8 +68,6 @@ public abstract class AbstractData<T extends Object> {
 
     public abstract void convertValue(String input);
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
-    @ApiModelProperty(example = "31/01/2020 14:00")
     public LocalDateTime getDateTime() {
         return dateTime;
     }

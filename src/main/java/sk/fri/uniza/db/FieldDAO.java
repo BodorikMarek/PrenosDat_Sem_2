@@ -29,7 +29,9 @@ public class FieldDAO extends AbstractDAO<Field> {
         return get(id);
     }
 
+
     public Field delete(String id) {
+        Field field = get(id);
         currentSession().remove(field);
         return field;
     }

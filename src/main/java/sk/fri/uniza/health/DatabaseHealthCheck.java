@@ -40,8 +40,8 @@ public class DatabaseHealthCheck extends HealthCheck {
         houseHold.setContactPerson(
                 new ContactPerson("Ferko", "Mrkvička",
                         "0907888777", "f.mrkvicka@fri.uniza.sk"));
-
         houseHold = houseHoldDAO.create(houseHold);
+
         Field airTemp = new Field();
         airTemp.setName("airTemp"); //NativeId - musí sa vytvoriť manuálne
         airTemp.setUnit("°C");
@@ -79,6 +79,8 @@ public class DatabaseHealthCheck extends HealthCheck {
 
         dataDAO.create(dataDouble);
         dataDAO.create(dataInteger);
+        dataDAO.create(dataString);
+
         return Result.healthy();
     }
 }
